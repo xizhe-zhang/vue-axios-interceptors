@@ -46,19 +46,7 @@ function handleValidationErrors(response){
     if(!response.data){
         return null;
     }
-
-    // Attempt to parse Laravel-structured validation errors.
-    try {
-        let messages = {};
-      
-        for(var key in response.data.errors){
-            messages[key] = response.data.errors[key].join(',');
-        }
-
-        return messages;
-    } catch (e) {
-        return response.data;
-    }
+    return response.data;
 }
 
 function slugify(string){
